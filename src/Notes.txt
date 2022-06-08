@@ -1,0 +1,12 @@
+ToDos:
+
+Need user login page (learn more about React Context Api for this)
+Create user object/state consist of userId, password, saved recipes
+
+Create database for saved recipes
+
+Maybe use MealDBApi with Jer's recipe scraper to already have database of public recipes
+
+Have a meal planning section with a 5-7 days of recipes
+
+Search recipes by catagory (ex: breakfast, lunch, etc..), name, ingredient 
