@@ -12,7 +12,7 @@ export const NewRecipeForm:React.FC<NewRecipeFormProps> = ({ recipeUrl, setRecip
 
   const recipeScraper = {
     scrape: async (recipe: string) => {
-      const response = await fetch('https://8cc0-184-59-65-235.ngrok.io/scrapeRecipe', {
+      const response = await fetch('https://a196-184-59-65-235.ngrok.io/scrapeRecipe', {
         method: 'POST',
         headers: {
           'Content-Type': "application/json",

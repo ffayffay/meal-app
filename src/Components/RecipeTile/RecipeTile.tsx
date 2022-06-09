@@ -8,7 +8,7 @@ interface RecipeTileProps {
 
 export const RecipeTile: React.FC<RecipeTileProps> = ({ rec }) => {
   return (
-    <div className={`${styles["tile"]}`}>
+    <div className={`${styles["tile"]}`} id={rec.name}>
       <div className={`${styles["tile-img"]}`}>
         <img src={rec.images[0]} alt="Food" />
       </div>
