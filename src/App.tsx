@@ -1,16 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { NewRecipeForm } from "./Components/NewRecipeForm/NewRecipeForm";
 import { RecipeTile } from "./Components/RecipeTile/RecipeTile";
+import { Router } from "./Router";
 import "./App.css";
 import { Recipe } from "./Types";
+import { MockData } from './MockData';
 
 export const App = () => {
-  // const [currentRoute, setCurrentRoute] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [recipeUrl, setRecipeUrl] = useState<string>("");
   // const [recipe, setRecipe] = useState<Recipe>();
   const [allRecipes, setAllRecipes] = useState<Recipe[]>([]);
+  const [currentRoute, setCurrentRoute] = useState(0);
+  const [recipeToDisplay, setRecipeToDisplay] = useState<Recipe>({} as Recipe);
 
-  // const addRecipe = (recipe: Recipe) => setAllRecipes([...allRecipes, recipe]);
+  const displayRecipe = (name: string) => {
+    const clickedRecipeId = name;
+    const foundRecipe = allRecipes.find((r) => r.name === clickedRecipeId);
+    console.log("clicked id", clickedRecipeId, "found id", foundRecipe);
+    if (foundRecipe) {
+      setRecipeToDisplay(foundRecipe);
+    }
+    setCurrentRoute(1);
+  };
+
+
+  useEffect(() => {
+    if (!isLoaded) {
+      // get stuff out of local storage
+      // and set it.
+
+      if (allRecipes.length === 0) {
+        setAllRecipes(MockData);
+      }
+      setIsLoaded(true);
+    }
+  }, [isLoaded, allRecipes]);
 
   // useEffect(() => {
   //   addRecipe(recipe);
@@ -40,13 +65,12 @@ export const App = () => {
         />
       </header>
       <div className="main-cont">
-        {allRecipes.length === 0 ? (
-          <h2>No Recipes</h2>
-        ) : (
-          allRecipes.map((rec: Recipe, idx) => (
-            <RecipeTile rec={rec} key={idx + 1} />
-          ))
-        )}
+        <Router
+          allRecipes={allRecipes}
+          currentRoute={currentRoute}
+          displayRecipe={displayRecipe}
+          recipeToDisplay={recipeToDisplay}
+        />
       </div>
     </div>
   );
