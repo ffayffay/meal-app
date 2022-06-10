@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { NavBar } from "./Components/NavBar/NavBar";
 import { NewRecipeForm } from "./Components/NewRecipeForm/NewRecipeForm";
 import { RecipeTile } from "./Components/RecipeTile/RecipeTile";
 import { Router } from "./Router";
 import "./App.css";
 import { Recipe } from "./Types";
-import { MockData } from './MockData';
+import { MockData } from "./MockData";
 
 export const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -23,7 +24,6 @@ export const App = () => {
     }
     setCurrentRoute(1);
   };
-
 
   useEffect(() => {
     if (!isLoaded) {
@@ -56,12 +56,9 @@ export const App = () => {
   return (
     <div className="App">
       <header>
-        <h1>Welcome Page</h1>
-        <NewRecipeForm
-          recipeUrl={recipeUrl}
-          setRecipeUrl={(string: string) => setRecipeUrl(string)}
-          setAllRecipes={(recipe: Recipe[]) => setAllRecipes(recipe)}
-          allRecipes={allRecipes}
+        <NavBar
+          navigate={(newRoute: number) => setCurrentRoute(newRoute)}
+          currentRoute={currentRoute}
         />
       </header>
       <div className="main-cont">
@@ -70,6 +67,9 @@ export const App = () => {
           currentRoute={currentRoute}
           displayRecipe={displayRecipe}
           recipeToDisplay={recipeToDisplay}
+          recipeUrl={recipeUrl}
+          setRecipeUrl={(string: string) => setRecipeUrl(string)}
+          setAllRecipes={(recipe: Recipe[]) => setAllRecipes(recipe)}
         />
       </div>
     </div>

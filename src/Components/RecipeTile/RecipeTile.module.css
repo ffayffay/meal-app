@@ -16,3 +16,7 @@
 .tile-img img {
   height: 100%;
 }
+
+.title {
+  cursor: pointer;
+}

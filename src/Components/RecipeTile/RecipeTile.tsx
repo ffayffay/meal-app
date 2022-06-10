@@ -14,7 +14,7 @@ export const RecipeTile: React.FC<RecipeTileProps> = ({ rec, displayRecipe }) =>
         <img src={rec.images[0]} alt="Food" />
       </div>
       <div>
-        <h3 onClick={() => displayRecipe(rec.name)}>
+        <h3 className={ `${styles["title"]}`} onClick={() => displayRecipe(rec.name)}>
           {rec.name}
         </h3>
         <p>{rec.description}</p>
