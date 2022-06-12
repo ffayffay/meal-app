@@ -10,3 +10,10 @@ Maybe use MealDBApi with Jer's recipe scraper to already have database of public
 Have a meal planning section with a 5-7 days of recipes
 
 Search recipes by catagory (ex: breakfast, lunch, etc..), name, ingredient 
+
+
+search needs to display all recipes that match the searach criteria. this is why we set filtered recipes so we have an array of all matching 
+recipes that we display in the tiles instead of showing the db of recipes
+
+
+look up minimal react router for simpler router solution

@@ -3,6 +3,7 @@ import { Recipe } from "./Types";
 import { RecipeTile } from "./Components/RecipeTile/RecipeTile";
 import { RecipeCard } from "./Components/RecipeCard/RecipeCard";
 import { NewRecipeForm } from "./Components/NewRecipeForm/NewRecipeForm";
+import { MealPlan } from "./Components/MealPlan/MealPlan";
 
 interface RouterProps {
   allRecipes: Recipe[];
@@ -51,6 +52,8 @@ export const Router: React.FC<RouterProps> = ({
           allRecipes={allRecipes}
         />
       );
+    case 3:
+      return <MealPlan allRecipes={allRecipes} displayRecipe={displayRecipe} />;
     default:
       return <></>;
   }

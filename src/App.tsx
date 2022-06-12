@@ -14,6 +14,8 @@ export const App = () => {
   const [allRecipes, setAllRecipes] = useState<Recipe[]>([]);
   const [currentRoute, setCurrentRoute] = useState(0);
   const [recipeToDisplay, setRecipeToDisplay] = useState<Recipe>({} as Recipe);
+  const [searchCriteria, setSearchCriteria] = useState("");
+  const [filreredRecipes, setFilteredRecipes] = useState<Recipe[]>([]);
 
   const displayRecipe = (name: string) => {
     const clickedRecipeId = name;
@@ -23,6 +25,18 @@ export const App = () => {
       setRecipeToDisplay(foundRecipe);
     }
     setCurrentRoute(1);
+  };
+
+  const searchRecipes = () => {
+    if (searchCriteria === "") {
+      setFilteredRecipes(allRecipes);
+      return;
+    }
+    const foundRecipes = allRecipes.filter((r) =>
+      r.name.toLowerCase().includes(searchCriteria)
+    );
+    console.log("found recipe to match search", foundRecipes);
+    setFilteredRecipes(foundRecipes);
   };
 
   useEffect(() => {
@@ -59,11 +73,14 @@ export const App = () => {
         <NavBar
           navigate={(newRoute: number) => setCurrentRoute(newRoute)}
           currentRoute={currentRoute}
+          searchCriteria={searchCriteria}
+          setSearchCriteria={setSearchCriteria}
+          searchRecipes={searchRecipes}
         />
       </header>
       <div className="main-cont">
         <Router
-          allRecipes={allRecipes}
+          allRecipes={allRecipes.filter((r) => r.name.toLowerCase().includes(searchCriteria.toLowerCase()))}
           currentRoute={currentRoute}
           displayRecipe={displayRecipe}
           recipeToDisplay={recipeToDisplay}
