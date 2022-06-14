@@ -80,7 +80,9 @@ export const App = () => {
       </header>
       <div className="main-cont">
         <Router
-          allRecipes={allRecipes.filter((r) => r.name.toLowerCase().includes(searchCriteria.toLowerCase()))}
+          allRecipes={allRecipes.filter((r) =>
+            r.name.toLowerCase().includes(searchCriteria.toLowerCase())
+          )}
           currentRoute={currentRoute}
           displayRecipe={displayRecipe}
           recipeToDisplay={recipeToDisplay}
