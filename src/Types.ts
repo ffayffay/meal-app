@@ -1,6 +1,6 @@
 export interface Recipe {
   nutrition: Nutrition;
-  ingredients:string[];
+  ingredients: string[];
   instructions: string[];
   times: Times;
   images: string[];
@@ -15,7 +15,7 @@ interface Nutrition {
   calories: string;
   carbohydrateContent: string;
   proteinContent: string;
-  fatContent: string
+  fatContent: string;
   sodiumContent: string;
   fiberContent: string;
 }
@@ -26,6 +26,11 @@ interface Times {
   total: string;
 }
 
+export interface Ing {
+  id: string;
+  name: string;
+  isChecked: boolean;
+}
 
 // {
 //   "nutrition": {

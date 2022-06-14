@@ -1,5 +1,5 @@
 import React from "react";
-import { Recipe } from "../../Types";
+import { Recipe, Ing } from "../../Types";
 import styles from "./RecipeCard.module.css";
 
 interface RecipeCardProps {
@@ -7,6 +7,23 @@ interface RecipeCardProps {
 }
 
 export const RecipeCard: React.FC<RecipeCardProps> = ({ recipeToDisplay }) => {
+  const uuidv4 = () => {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+      /[xy]/g,
+      function (c) {
+        var r = (Math.random() * 16) | 0,
+          v = c === "x" ? r : (r & 0x3) | 0x8;
+        return v.toString(16);
+      }
+    );
+  };
+  let mappedIngs: Ing[] = recipeToDisplay.ingredients.map((name) => ({
+    id: uuidv4(),
+    name,
+    isChecked: false,
+  }));
+  console.log("should be obj now", mappedIngs);
+
   return (
     <div className={`${styles["rec-cont"]}`}>
       <div className={`${styles["img-cont"]}`}>
@@ -70,8 +87,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipeToDisplay }) => {
           <button>Add To Shopping List</button>
         </div>
         <ul>
-          {recipeToDisplay.ingredients.map((ing, idx) => (
-            <li key={idx + 1}>{ing}</li>
+          {mappedIngs.map((ing: Ing, idx) => (
+            <li key={idx + 1}>{ing.name}</li>
           ))}
         </ul>
       </div>
