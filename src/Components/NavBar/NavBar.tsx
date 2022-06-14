@@ -9,7 +9,13 @@ interface NavBarProps {
   searchRecipes: any;
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ navigate, currentRoute, searchCriteria, setSearchCriteria, searchRecipes }) => {
+export const NavBar: React.FC<NavBarProps> = ({
+  navigate,
+  currentRoute,
+  searchCriteria,
+  setSearchCriteria,
+  searchRecipes,
+}) => {
   const handleClick = (newRoute: number) => {
     navigate(newRoute);
   };
@@ -30,7 +36,7 @@ export const NavBar: React.FC<NavBarProps> = ({ navigate, currentRoute, searchCr
       <span className={`${styles["menu-item"]}`} onClick={() => handleClick(2)}>
         <h4>Add Recipe</h4>
       </span>
-      <span className={`${styles["menu-item"]}`}>
+      <span className={`${styles["menu-item"]}`} onClick={() => handleClick(4)}>
         <h4>Shopping List</h4>
       </span>
       <span className={`${styles["menu-item"]}`} onClick={() => handleClick(3)}>

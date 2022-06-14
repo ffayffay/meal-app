@@ -1,9 +1,10 @@
 import React from "react";
-import { Recipe } from "./Types";
+import { Recipe, Ing } from "./Types";
 import { RecipeTile } from "./Components/RecipeTile/RecipeTile";
 import { RecipeCard } from "./Components/RecipeCard/RecipeCard";
 import { NewRecipeForm } from "./Components/NewRecipeForm/NewRecipeForm";
 import { MealPlan } from "./Components/MealPlan/MealPlan";
+import { ShopList } from "./Components/ShopList/ShopList";
 
 interface RouterProps {
   allRecipes: Recipe[];
@@ -13,6 +14,9 @@ interface RouterProps {
   recipeUrl: string;
   setRecipeUrl: (string: string) => void;
   setAllRecipes: (recipe: Recipe[]) => void;
+  getIngredients: (array: Ing[]) => void;
+  shopList: Ing[];
+  deleteIng: (idToDel: Ing) => void;
 }
 
 export const Router: React.FC<RouterProps> = ({
@@ -23,6 +27,9 @@ export const Router: React.FC<RouterProps> = ({
   recipeUrl,
   setRecipeUrl,
   setAllRecipes,
+  getIngredients,
+  shopList,
+  deleteIng,
 }) => {
   switch (currentRoute) {
     case 0:
@@ -42,7 +49,12 @@ export const Router: React.FC<RouterProps> = ({
         </div>
       );
     case 1:
-      return <RecipeCard recipeToDisplay={recipeToDisplay} />;
+      return (
+        <RecipeCard
+          recipeToDisplay={recipeToDisplay}
+          getIngredients={getIngredients}
+        />
+      );
     case 2:
       return (
         <NewRecipeForm
@@ -54,6 +66,8 @@ export const Router: React.FC<RouterProps> = ({
       );
     case 3:
       return <MealPlan allRecipes={allRecipes} displayRecipe={displayRecipe} />;
+    case 4:
+      return <ShopList shopList={shopList} deleteIng={deleteIng} />;
     default:
       return <></>;
   }

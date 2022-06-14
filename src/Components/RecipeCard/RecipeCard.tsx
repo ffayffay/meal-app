@@ -4,9 +4,13 @@ import styles from "./RecipeCard.module.css";
 
 interface RecipeCardProps {
   recipeToDisplay: Recipe;
+  getIngredients: (aray: Ing[]) => void;
 }
 
-export const RecipeCard: React.FC<RecipeCardProps> = ({ recipeToDisplay }) => {
+export const RecipeCard: React.FC<RecipeCardProps> = ({
+  recipeToDisplay,
+  getIngredients,
+}) => {
   const uuidv4 = () => {
     return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
       /[xy]/g,
@@ -84,7 +88,9 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipeToDisplay }) => {
       </div>
       <div>
         <div>
-          <button>Add To Shopping List</button>
+          <button onClick={() => getIngredients(mappedIngs)}>
+            Add To Shopping List
+          </button>
         </div>
         <ul>
           {mappedIngs.map((ing: Ing, idx) => (
