@@ -1,12 +1,14 @@
 html,
 body,
-.root {
+#root {
   margin: 0;
   height: 100%;
+  width: 100%;
 }
 
 .App {
   height: 100%;
+  width: 100%;
 }
 
 .main-cont {
@@ -14,6 +16,7 @@ body,
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .tile-wrap {

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../ShopListItem/ShopListItem.module.css";
 import { Ing } from "../../Types";
 
 interface ShopListItemProps {
@@ -11,10 +12,14 @@ export const ShopListItem: React.FC<ShopListItemProps> = ({
   deleteIng,
 }) => {
   return (
-    <div id={ing.id}>
+    <div id={ing.id} className={`${styles["list-item-cont"]}`}>
       <li>{ing.name}</li>
-      <button>Edit</button>
-      <button onClick={() => deleteIng(ing)}>Delete</button>
+      <div>
+        <button className={`${styles["btn"]}`}>Edit</button>
+        <button className={`${styles["btn"]}`} onClick={() => deleteIng(ing)}>
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

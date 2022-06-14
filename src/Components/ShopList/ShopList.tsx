@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../ShopList/ShopList.module.css";
 import { Ing } from "../../Types";
 import { ShopListItem } from "../ShopListItem/ShopListItem";
 
@@ -9,7 +10,7 @@ interface ShopListProps {
 
 export const ShopList: React.FC<ShopListProps> = ({ shopList, deleteIng }) => {
   return (
-    <div>
+    <div className={`${styles["list-cont"]}`}>
       <span>
         <h2>Shopping List:</h2>
       </span>
