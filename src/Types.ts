@@ -8,6 +8,9 @@ export interface Recipe {
   description: string;
   servings: string[];
   id: string;
+  rating: number;
+  comments: string;
+  isFavorite: boolean;
 }
 
 interface Nutrition {

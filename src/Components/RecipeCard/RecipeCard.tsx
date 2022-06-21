@@ -1,6 +1,7 @@
 import React from "react";
 import { Recipe, Ing } from "../../Types";
 import styles from "./RecipeCard.module.css";
+import { StarRating } from "../StarRating/StarRating";
 
 interface RecipeCardProps {
   recipeToDisplay: Recipe;
@@ -35,6 +36,15 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
       </div>
       <div className={`${styles["desription"]}`}>
         {recipeToDisplay.description}
+      </div>
+      <div className={`${styles["extras-cont"]}`}>
+        <StarRating />
+        <div>
+          <button>Add Comments</button>
+        </div>
+        <div>
+          <button>Heart/Favorite</button>
+        </div>
       </div>
       <div className={`${styles["nutrition"]}`}>
         <div>

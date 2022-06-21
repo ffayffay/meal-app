@@ -48,6 +48,9 @@ export const MockData = [
     description:
       "Up your brunch game with this fast and fresh recipe for Fruit and Cream Cheese Breakfast Pastries topped with your choice of fruit.",
     servings: ["8", "8 pastries"],
+    rating: 3,
+    comments: "Look a comment wahooo. Recipe is okay.",
+    isFavorite: false,
   },
   {
     id: "8302083",
@@ -98,6 +101,9 @@ export const MockData = [
     description:
       "Up your brunch game with this fast and fresh recipe for Fruit and Cream Cheese Breakfast Pastries topped with your choice of fruit.",
     servings: ["8", "8 pastries"],
+    rating: 3,
+    comments: "Look a comment wahooo. Recipe is okay.",
+    isFavorite: false,
   },
   {
     id: "843ddk0",
@@ -148,6 +154,9 @@ export const MockData = [
     description:
       "Up your brunch game with this fast and fresh recipe for Fruit and Cream Cheese Breakfast Pastries topped with your choice of fruit.",
     servings: ["8", "8 pastries"],
+    rating: 3,
+    comments: "Look a comment wahooo. Recipe is okay.",
+    isFavorite: false,
   },
   {
     id: "9d9fjs934",
@@ -198,6 +207,9 @@ export const MockData = [
     description:
       "Up your brunch game with this fast and fresh recipe for Fruit and Cream Cheese Breakfast Pastries topped with your choice of fruit.",
     servings: ["8", "8 pastries"],
+    rating: 3,
+    comments: "Look a comment wahooo. Recipe is okay.",
+    isFavorite: false,
   },
   {
     id: "f9394384",
@@ -248,6 +260,9 @@ export const MockData = [
     description:
       "Up your brunch game with this fast and fresh recipe for Fruit and Cream Cheese Breakfast Pastries topped with your choice of fruit.",
     servings: ["8", "8 pastries"],
+    rating: 3,
+    comments: "Look a comment wahooo. Recipe is okay.",
+    isFavorite: false,
   },
   {
     id: "039483928",
@@ -298,6 +313,9 @@ export const MockData = [
     description:
       "Up your brunch game with this fast and fresh recipe for Fruit and Cream Cheese Breakfast Pastries topped with your choice of fruit.",
     servings: ["8", "8 pastries"],
+    rating: 3,
+    comments: "Look a comment wahooo. Recipe is okay.",
+    isFavorite: false,
   },
   {
     id: "fj984923899",
@@ -348,6 +366,9 @@ export const MockData = [
     description:
       "Up your brunch game with this fast and fresh recipe for Fruit and Cream Cheese Breakfast Pastries topped with your choice of fruit.",
     servings: ["8", "8 pastries"],
+    rating: 3,
+    comments: "Look a comment wahooo. Recipe is okay.",
+    isFavorite: false,
   },
   {
     id: "887473",
@@ -398,6 +419,9 @@ export const MockData = [
     description:
       "Up your brunch game with this fast and fresh recipe for Fruit and Cream Cheese Breakfast Pastries topped with your choice of fruit.",
     servings: ["8", "8 pastries"],
+    rating: 3,
+    comments: "Look a comment wahooo. Recipe is okay.",
+    isFavorite: false,
   },
   {
     id: "0023838",
@@ -448,6 +472,9 @@ export const MockData = [
     description:
       "Up your brunch game with this fast and fresh recipe for Fruit and Cream Cheese Breakfast Pastries topped with your choice of fruit.",
     servings: ["8", "8 pastries"],
+    rating: 3,
+    comments: "Look a comment wahooo. Recipe is okay.",
+    isFavorite: false,
   },
   {
     id: "12382980",
@@ -498,5 +525,8 @@ export const MockData = [
     description:
       "Up your brunch game with this fast and fresh recipe for Fruit and Cream Cheese Breakfast Pastries topped with your choice of fruit.",
     servings: ["8", "8 pastries"],
+    rating: 3,
+    comments: "Look a comment wahooo. Recipe is okay.",
+    isFavorite: false,
   },
 ];

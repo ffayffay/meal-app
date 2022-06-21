@@ -50,6 +50,9 @@ export const NewRecipeForm: React.FC<NewRecipeFormProps> = ({
   const updateAllRecipes = () => {
     scrapeRecipe().then((recipe: Recipe) => {
       recipe.id = uuidv4();
+      recipe.rating = 0;
+      recipe.comments = "";
+      recipe.isFavorite = false;
       setAllRecipes([...allRecipes, recipe]);
     });
     setRecipeUrl("");
