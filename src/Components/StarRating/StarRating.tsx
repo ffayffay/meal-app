@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import styles from "./StarRating.module.css";
+import { Recipe } from "../../Types";
 import { Star } from "../Star/Star";
 
-export const StarRating = () => {
+interface StarRatingProps {
+  recipeToDisplay: Recipe;
+}
+
+export const StarRating: React.FC<StarRatingProps> = ({ recipeToDisplay }) => {
   const [rating, setRating] = useState(0);
 
   const changeRating = (newRating: number) => {
     setRating(newRating);
-    console.log("RATING", newRating);
+    recipeToDisplay.rating = newRating;
   };
 
   // possibly use a useEffect to watch for when rating changes and update what "stars" are filled in to show the rating
@@ -16,7 +21,12 @@ export const StarRating = () => {
   return (
     <div className={`${styles["star-cont"]}`}>
       {ratingArray.map((numb: number, idx) => (
-        <Star numb={numb} key={idx + 1} changeRating={changeRating} />
+        <Star
+          numb={numb}
+          key={idx + 1}
+          changeRating={changeRating}
+          rating={rating}
+        />
       ))}
     </div>
   );

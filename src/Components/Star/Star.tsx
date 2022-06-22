@@ -1,18 +1,21 @@
 import React from "react";
-import { FaStar } from "react-icons/fa";
-// filled, onClick props
+import styles from "../Star/Star.module.css";
+
 interface StarProps {
   numb: number;
   changeRating: (numb: number) => void;
+  rating: number;
 }
 
-export const Star: React.FC<StarProps> = ({ numb, changeRating }) => {
+export const Star: React.FC<StarProps> = ({ numb, changeRating, rating }) => {
   return (
     <div>
-      <button onClick={() => changeRating(numb)}>{numb}</button>
+      <button
+        className={numb <= rating ? `${styles["fill"]}` : ""}
+        onClick={() => changeRating(numb)}
+      >
+        {numb}
+      </button>
     </div>
-    // <FaStar
-    //  color={filled ? "orange" : "lightgray"}
-    //  onClick={onClick} />
   );
 };

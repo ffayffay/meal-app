@@ -38,7 +38,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
         {recipeToDisplay.description}
       </div>
       <div className={`${styles["extras-cont"]}`}>
-        <StarRating />
+        <StarRating recipeToDisplay={recipeToDisplay} />
         <div>
           <button>Add Comments</button>
         </div>
