@@ -5,14 +5,19 @@ import { Star } from "../Star/Star";
 
 interface StarRatingProps {
   recipeToDisplay: Recipe;
+  updateRecList: (rec: Recipe) => void;
 }
 
-export const StarRating: React.FC<StarRatingProps> = ({ recipeToDisplay }) => {
+export const StarRating: React.FC<StarRatingProps> = ({
+  recipeToDisplay,
+  updateRecList,
+}) => {
   const [rating, setRating] = useState(0);
 
   const changeRating = (newRating: number) => {
     setRating(newRating);
     recipeToDisplay.rating = newRating;
+    updateRecList(recipeToDisplay);
   };
 
   // possibly use a useEffect to watch for when rating changes and update what "stars" are filled in to show the rating
@@ -26,6 +31,7 @@ export const StarRating: React.FC<StarRatingProps> = ({ recipeToDisplay }) => {
           key={idx + 1}
           changeRating={changeRating}
           rating={rating}
+          recipeToDisplay={recipeToDisplay}
         />
       ))}
     </div>

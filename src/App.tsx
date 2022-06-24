@@ -4,6 +4,7 @@ import { Router } from "./Router";
 import "./App.css";
 import { Recipe, Ing } from "./Types";
 import { MockData } from "./MockData";
+import { receiveMessageOnPort } from "worker_threads";
 
 export const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -36,6 +37,16 @@ export const App = () => {
     );
     console.log("found recipe to match search", foundRecipes);
     setFilteredRecipes(foundRecipes);
+  };
+
+  const updateRecList = (rec: Recipe) => {
+    debugger;
+    const list = allRecipes.map((r: Recipe) => {
+      if (r.id === rec.id) return rec;
+      return r;
+    });
+    console.log("list", list);
+    setAllRecipes(list);
   };
 
   const getIngredients = (array: Ing[]) => {
@@ -87,6 +98,7 @@ export const App = () => {
           getIngredients={getIngredients}
           shopList={shopList}
           deleteIng={(idTodel: Ing) => deleteIng(idTodel)}
+          updateRecList={updateRecList}
         />
       </div>
     </div>

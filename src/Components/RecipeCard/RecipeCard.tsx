@@ -2,15 +2,18 @@ import React from "react";
 import { Recipe, Ing } from "../../Types";
 import styles from "./RecipeCard.module.css";
 import { StarRating } from "../StarRating/StarRating";
+import { updateLanguageServiceSourceFile } from "typescript";
 
 interface RecipeCardProps {
   recipeToDisplay: Recipe;
   getIngredients: (aray: Ing[]) => void;
+  updateRecList: (rec: Recipe) => void;
 }
 
 export const RecipeCard: React.FC<RecipeCardProps> = ({
   recipeToDisplay,
   getIngredients,
+  updateRecList,
 }) => {
   const uuidv4 = () => {
     return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
@@ -34,11 +37,17 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
       <div className={`${styles["img-cont"]}`}>
         <img src={recipeToDisplay.images[1]} alt="Food" />
       </div>
+      <div>
+        <h1>{recipeToDisplay.name}</h1>
+      </div>
       <div className={`${styles["desription"]}`}>
         {recipeToDisplay.description}
       </div>
       <div className={`${styles["extras-cont"]}`}>
-        <StarRating recipeToDisplay={recipeToDisplay} />
+        <StarRating
+          recipeToDisplay={recipeToDisplay}
+          updateRecList={updateRecList}
+        />
         <div>
           <button>Add Comments</button>
         </div>

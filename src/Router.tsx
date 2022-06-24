@@ -17,6 +17,7 @@ interface RouterProps {
   getIngredients: (array: Ing[]) => void;
   shopList: Ing[];
   deleteIng: (idToDel: Ing) => void;
+  updateRecList: (rec: Recipe) => void;
 }
 
 export const Router: React.FC<RouterProps> = ({
@@ -30,6 +31,7 @@ export const Router: React.FC<RouterProps> = ({
   getIngredients,
   shopList,
   deleteIng,
+  updateRecList,
 }) => {
   switch (currentRoute) {
     case 0:
@@ -53,6 +55,7 @@ export const Router: React.FC<RouterProps> = ({
         <RecipeCard
           recipeToDisplay={recipeToDisplay}
           getIngredients={getIngredients}
+          updateRecList={updateRecList}
         />
       );
     case 2:
