@@ -40,7 +40,6 @@ export const App = () => {
   };
 
   const updateRecList = (rec: Recipe) => {
-    debugger;
     const list = allRecipes.map((r: Recipe) => {
       if (r.id === rec.id) return rec;
       return r;

@@ -2,7 +2,7 @@ import React from "react";
 import { Recipe, Ing } from "../../Types";
 import styles from "./RecipeCard.module.css";
 import { StarRating } from "../StarRating/StarRating";
-import { updateLanguageServiceSourceFile } from "typescript";
+import { Heart } from "../Heart/Heart";
 
 interface RecipeCardProps {
   recipeToDisplay: Recipe;
@@ -51,9 +51,10 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
         <div>
           <button>Add Comments</button>
         </div>
-        <div>
-          <button>Heart/Favorite</button>
-        </div>
+        <Heart
+          recipeToDisplay={recipeToDisplay}
+          updateRecList={updateRecList}
+        />
       </div>
       <div className={`${styles["nutrition"]}`}>
         <div>
