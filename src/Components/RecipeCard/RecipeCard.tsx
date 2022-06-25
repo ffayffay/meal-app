@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Recipe, Ing } from "../../Types";
 import styles from "./RecipeCard.module.css";
 import { StarRating } from "../StarRating/StarRating";
 import { Heart } from "../Heart/Heart";
+import { CommentsInput } from "../CommentsInput/CommentsInput";
 
 interface RecipeCardProps {
   recipeToDisplay: Recipe;
@@ -15,6 +16,12 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
   getIngredients,
   updateRecList,
 }) => {
+  const [isShown, setIsShown] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setIsShown((current) => !current);
+  };
+
   const uuidv4 = () => {
     return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
       /[xy]/g,
@@ -49,7 +56,11 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
           updateRecList={updateRecList}
         />
         <div>
-          <button>Add Comments</button>
+          {!isShown ? (
+            <button onClick={handleClick}>Add Comments</button>
+          ) : (
+            <CommentsInput handleClick={handleClick} />
+          )}
         </div>
         <Heart
           recipeToDisplay={recipeToDisplay}
