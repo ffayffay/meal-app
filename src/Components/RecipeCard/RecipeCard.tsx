@@ -4,6 +4,7 @@ import styles from "./RecipeCard.module.css";
 import { StarRating } from "../StarRating/StarRating";
 import { Heart } from "../Heart/Heart";
 import { CommentsInput } from "../CommentsInput/CommentsInput";
+import { Comments } from "../Comments/Comments";
 
 interface RecipeCardProps {
   recipeToDisplay: Recipe;
@@ -17,9 +18,15 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
   updateRecList,
 }) => {
   const [isShown, setIsShown] = useState<boolean>(false);
+  const [comment, setComment] = useState<string>("");
+  const [allComments, setAllComments] = useState<string[]>([]);
 
   const handleClick = () => {
     setIsShown((current) => !current);
+  };
+
+  const updateComments = () => {
+    setAllComments([...allComments, comment]);
   };
 
   const uuidv4 = () => {
@@ -59,7 +66,11 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
           {!isShown ? (
             <button onClick={handleClick}>Add Comments</button>
           ) : (
-            <CommentsInput handleClick={handleClick} />
+            <CommentsInput
+              handleClick={handleClick}
+              setComment={setComment}
+              updateComments={updateComments}
+            />
           )}
         </div>
         <Heart
@@ -136,6 +147,11 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
           ))}
         </ol>
       </div>
+      {comment
+        ? allComments.map((comment: string, idx) => (
+            <Comments key={idx + 1} comment={comment} />
+          ))
+        : ""}
     </div>
   );
 };

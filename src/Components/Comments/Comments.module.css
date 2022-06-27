@@ -1,0 +1,17 @@
+.comm-cont {
+  border: 2px solid darkgray;
+  text-align: center;
+  height: 175px;
+  width: 500px;
+  margin-bottom: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.date {
+  align-self: flex-start;
+  font-weight: 195;
+  font-size: 14px;
+  margin-left: 5px;
+}

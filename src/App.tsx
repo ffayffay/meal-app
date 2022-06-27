@@ -100,6 +100,9 @@ export const App = () => {
           updateRecList={updateRecList}
         />
       </div>
+      <footer>
+        <span>FMC &#169;</span>
+      </footer>
     </div>
   );
 };
